@@ -1,5 +1,5 @@
 {
-  "name": "chainstock",
+  "name": "chainstock-frontend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,7 +7,10 @@
     "compile": "hardhat compile",
     "node": "hardhat node",
     "deploy:local": "hardhat run scripts/deploy.js --network localhost",
-    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia"
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +19,27 @@
   "private": true,
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "6.1.2",
+    "@vitejs/plugin-react": "4.7.0",
+    "autoprefixer": "10.4.21",
     "hardhat": "2.28.0",
-    "prettier": "3.6.2"
+    "postcss": "8.5.3",
+    "prettier": "3.6.2",
+    "tailwindcss": "3.4.17",
+    "vite": "6.3.5"
   },
   "dependencies": {
     "@openzeppelin/contracts": "5.4.0",
-    "dotenv": "16.4.7"
+    "dotenv": "16.4.7",
+    "ethers": "6.14.0",
+    "framer-motion": "11.18.2",
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hot-toast": "2.5.2",
+    "react-router-dom": "6.30.1"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
   }
 }

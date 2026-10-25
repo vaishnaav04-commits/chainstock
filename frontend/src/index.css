@@ -1,0 +1,178 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased
+           dark:bg-[#080f1d] dark:text-slate-100;
+  }
+
+  button,
+  input,
+  select {
+    @apply focus-visible:outline-none
+           focus-visible:ring-2
+           focus-visible:ring-teal-400
+           focus-visible:ring-offset-2
+           dark:focus-visible:ring-offset-slate-950;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-slate-200
+           bg-white shadow-sm
+           dark:border-white/10
+           dark:bg-[#111c2e];
+  }
+
+  .muted {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center
+           gap-2 rounded-xl bg-teal-500 px-4 py-2.5
+           text-sm font-semibold text-slate-950
+           transition hover:bg-teal-400
+           disabled:cursor-not-allowed
+           disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center
+           gap-2 rounded-xl border border-slate-200
+           bg-white px-4 py-2.5 text-sm font-medium
+           transition hover:bg-slate-100
+           dark:border-white/10
+           dark:bg-white/5
+           dark:hover:bg-white/10;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.15em]
+           text-teal-600 dark:text-teal-400;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg
+           bg-slate-200 dark:bg-slate-700/60;
+  }
+}
+
+::selection {
+  background: #14b8a6;
+  color: #04111a;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64748b66;
+  border-radius: 999px;
+}
+
+/* =====================================================
+   CHAINSTOCK PHASE 11 — MOBILE RELIABILITY
+   ===================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Prevent mobile Safari from zooming into form inputs. */
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .panel {
+    min-width: 0;
+  }
+}
+
+/* Camera preview adapts to narrow phone screens. */
+#chainstock-reader {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#chainstock-reader video {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+
+/* Avoid very long blockchain hashes overflowing cards. */
+.break-hash {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Improve keyboard navigation and accessibility. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 3px;
+}
+
+/* Respect the user's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
